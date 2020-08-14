@@ -5,15 +5,17 @@ export default function ListComponent() {
     const amigos = [
         {name: "Juan Pablo", age: 17},
         {name: "Andres", age: 9},
-        {name: "Horacio", age: 18},
-        {name: "Juan Enrique", age: 17},
-        {name: "Santiago", age: 18},
+        {name: "Pepito", age: 18},
+        {name: "Juanito", age: 17},
+        {name: "Fulanito", age: 18},
     ]
 
     return(
+    <View style = {styles.container}>
     <FlatList
         data = {amigos}
         showsVerticalScrollIndicator = {false}
+        keyExtractor = {(item) => item.id}
         renderItem = {({item}) => {
             return(
                 <View style = {styles.textContainer}>
@@ -23,9 +25,16 @@ export default function ListComponent() {
             )
         }}
     />
+    </View>
     )
 }
 const styles = StyleSheet.create({
+    container:{
+          backgroundColor: "#001f3f",
+          flexDirection: "row",
+          flex: 1,
+          justifyContent:"center"
+        },
     textContainer:{
         backgroundColor: "#333333",
         marginVertical: 5,
