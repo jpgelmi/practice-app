@@ -5,7 +5,11 @@ import NumberComponent from "../screen/NumberComponent"
 import TextComponent from "../screen/TextComponent"
 import HomeScreen from "../screen/HomeScreen"
 
+import colors from "../config/colors"
+
 import { createStackNavigator } from '@react-navigation/stack';
+import { color } from 'react-native-reanimated'
+
 const Stack = createStackNavigator();
 
 export default function Navigation() {
@@ -15,10 +19,10 @@ export default function Navigation() {
                 name = "home"
                 component = {HomeScreen}
                 options = {
-                    {title: "Home screen",
+                    {title: "Practice App",
                     headerStyle: {
-                        backgroundColor: "red"},
-                    headerTintColor: "green",
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
                     headerTransparent: false}
                 }/>
              <Stack.Screen
@@ -27,8 +31,8 @@ export default function Navigation() {
                 options = {
                     {title: "ListComponent",
                     headerStyle:{
-                        backgroundColor: "red"},
-                    headerTintColor: "green",
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
                     headerTransparent: false}
                 }/>
              <Stack.Screen
@@ -37,8 +41,8 @@ export default function Navigation() {
                 options = {
                     {title: "ListComponent",
                     headerStyle:{
-                        backgroundColor: "red"},
-                    headerTintColor: "green",
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
                     headerTransparent: false}
                 }/>
              <Stack.Screen
@@ -47,8 +51,8 @@ export default function Navigation() {
                 options = {
                     {title: "ListComponent",
                     headerStyle:{
-                        backgroundColor: "red"},
-                    headerTintColor: "green",
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
                     headerTransparent: false}
                 }/>
         </Stack.Navigator>

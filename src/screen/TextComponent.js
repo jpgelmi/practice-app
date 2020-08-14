@@ -1,6 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+import colors from "../config/colors"
+import { color } from 'react-native-reanimated'
+
 export default function TextComponent() {
     let nombre = "Juan Pablo Gelmi"
 
@@ -16,7 +19,9 @@ const styles = StyleSheet.create({
     TextContainer:{
         paddingHorizontal: 15,
         paddingVertical: 20,
-        justifyContent:"center"
+        justifyContent:"center",
+        backgroundColor: colors.secundario,
+        flex: 1
     },
     text:{
         fontSize: 20,

@@ -1,5 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View , FlatList} from 'react-native'
+import colors from "../config/colors"
+import { color } from 'react-native-reanimated'
 
 export default function ListComponent() {
     const amigos = [
@@ -30,13 +32,13 @@ export default function ListComponent() {
 }
 const styles = StyleSheet.create({
     container:{
-          backgroundColor: "#001f3f",
+          backgroundColor: colors.secundario,
           flexDirection: "row",
           flex: 1,
           justifyContent:"center"
         },
     textContainer:{
-        backgroundColor: "#333333",
+        backgroundColor: colors.gris,
         marginVertical: 5,
         paddingVertical: 15,
         alignItems: "center",
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     },
     textStyle:{
         marginVertical: 10,
-        color: "#fff",
+        color: colors.texto,
         fontSize: 20,
         fontWeight: "bold"
     }
