@@ -1,12 +1,47 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StyleSheet, Text, View, Button} from 'react-native'
+import colors from "../config/colors"
+import { color } from 'react-native-reanimated'
 
 export default function RandomColor() {
+    const [colors , setColors] = useState([])
+    console.log(colors)
     return (
-        <View>
-            <Button title = "Add a color"/>
+        <View style = {styles.container}>
+            <Button
+                title = "Add a color"
+                onPress = {() => {
+                setColors([...colors, randomRgb()])
+            }}/>
+            <View style = {[styles.image, {backgroundColor: randomRgb(),}]}/>
         </View>
     )
 }
 
-const styles = StyleSheet.create({})
+const randomRgb = () => {
+    const red = Math.floor(Math.random() * 256)
+    const green = Math.floor(Math.random() * 256)
+    const blue = Math.floor(Math.random() * 256)
+
+    return(
+        `rgb(${red},${green},${blue})`
+    )    
+}
+
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: colors.secundario,
+        flex: 1,
+        alignItems: "center"
+    },
+    image:{
+            height: 200,
+            width: 200,
+            marginVertical: 20,
+            borderRadius: 20
+        },
+})
+
+
+
+
