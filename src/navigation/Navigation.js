@@ -5,6 +5,7 @@ import NumberComponent from "../screen/NumberComponent"
 import TextComponent from "../screen/TextComponent"
 import HomeScreen from "../screen/HomeScreen"
 import RandomColor from "../screen/RandomColor"
+import ColorAdjuster from "../screen/ColorAdjuster"
 
 import colors from "../config/colors"
 
@@ -59,6 +60,16 @@ export default function Navigation() {
             <Stack.Screen
                 name = "color"
                 component = {RandomColor}
+                options = {
+                    {title: "RandomColor",
+                    headerStyle:{
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
+                    headerTransparent: false}
+                }/>
+            <Stack.Screen
+                name = "colorAdd"
+                component = {ColorAdjuster}
                 options = {
                     {title: "RandomColor",
                     headerStyle:{

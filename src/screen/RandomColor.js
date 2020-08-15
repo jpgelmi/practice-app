@@ -6,6 +6,7 @@ import { FlatList } from 'react-native-gesture-handler'
 export default function RandomColor() {
     const [colors , setColors] = useState([])
     console.log(colors)
+    
     return (
         <View style = {styles.container}>
             <Button
