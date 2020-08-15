@@ -16,7 +16,7 @@ export default function HomeScreen(props){
         {title: "Text Component", nav: "text"},
         {title: "list Component", nav: "list"},
         {title: "Number Component", nav: "number"},
-
+        {title: "Random Color", nav: "color"},
     ]
 
     return (

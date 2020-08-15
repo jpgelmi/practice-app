@@ -4,6 +4,7 @@ import ListComponent from "../screen/ListComponent"
 import NumberComponent from "../screen/NumberComponent"
 import TextComponent from "../screen/TextComponent"
 import HomeScreen from "../screen/HomeScreen"
+import RandomColor from "../screen/RandomColor"
 
 import colors from "../config/colors"
 
@@ -50,6 +51,16 @@ export default function Navigation() {
                 component = {NumberComponent}
                 options = {
                     {title: "ListComponent",
+                    headerStyle:{
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
+                    headerTransparent: false}
+                }/>
+            <Stack.Screen
+                name = "color"
+                component = {RandomColor}
+                options = {
+                    {title: "RandomColor",
                     headerStyle:{
                         backgroundColor: colors.principal},
                     headerTintColor: colors.texto,

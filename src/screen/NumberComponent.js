@@ -1,13 +1,19 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-
+import React, {useState} from 'react'
+import { StyleSheet, Text, View, Button } from 'react-native'
 import colors from "../config/colors"
-import { color } from 'react-native-reanimated'
 
 export default function NumberComponent() {
+    const[contador, setContador] = useState(0)
+
     return (
         <View style = {styles.container}>
-            <Text style = {styles.text}>Veces apretadas: </Text>
+            <Text style = {styles.text}>Veces apretadas:{contador}</Text>
+            <Button title = "Incrementar" onPress = {() => {
+                setContador(contador + 1)
+            }}/>
+            <Button title = "Disminuir" onPress = {() => {
+                setContador(contador - 1)
+            }}/>
         </View>
     )
 }
@@ -18,7 +24,7 @@ const styles = StyleSheet.create({
         flex:1
     },
     text:{
-    color: "#fff",
+    color: colors.texto,
     fontSize: 25,
     fontWeight: "bold",
     marginVertical: 25,
