@@ -23,9 +23,10 @@ export default function HomeScreen(props){
     return (
         <View style = {styles.container}>
             <FlatList
+                keyExtractor = {(item) => item.id}
                 data = {menu}
                 showsVerticalScrollIndicator = {false}
-                keyExtractor = {(item) => item.id}
+                keyExtractor = {(item) => item}
                 renderItem = {({item}) => {
                     return(
                         <TouchableOpacity onPress = {() => navigation.navigate(item.nav)}>

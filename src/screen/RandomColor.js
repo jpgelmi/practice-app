@@ -15,7 +15,7 @@ export default function RandomColor() {
                 setColors([...colors, randomRgb()])
             }}/>
             <FlatList
-                keyExtractor = {(item) => item}
+                keyExtractor = {(item) => item.id}
                 data = {colors}
                 renderItem = {({item}) => {
                     return(
