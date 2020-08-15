@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View, Button} from 'react-native'
 import colors from "../config/colors"
-import { color } from 'react-native-reanimated'
+import { FlatList } from 'react-native-gesture-handler'
 
 export default function RandomColor() {
     const [colors , setColors] = useState([])
@@ -13,7 +13,17 @@ export default function RandomColor() {
                 onPress = {() => {
                 setColors([...colors, randomRgb()])
             }}/>
-            <View style = {[styles.image, {backgroundColor: randomRgb(),}]}/>
+            <FlatList
+                keyExtractor = {(item) => item}
+                data = {colors}
+                renderItem = {({item}) => {
+                    return(
+                        <View
+                            style = {
+                                [styles.image, {backgroundColor: item}]}/>
+                    )
+                }}
+            />
         </View>
     )
 }
