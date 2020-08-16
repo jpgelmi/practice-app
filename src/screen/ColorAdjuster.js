@@ -23,6 +23,8 @@ export default function ColorAdjuster() {
             case "blue":
                 blue + change > 225 || blue + change < 0 ? null : setBlue(blue + change);
                 return;
+            default:
+                return;
         }
     }
 
@@ -33,12 +35,12 @@ export default function ColorAdjuster() {
                 onDisminuir = {() => setColor("red", -1 * COLOR_INC)}
                 color = "Red"/>
             <ColorCounter
-                onIncrementar = {() => setBlue(blue + COLOR_INC)}
-                onDisminuir = {() => setBlue(blue - COLOR_INC)}
+                onIncrementar = {() => setColor("blue", COLOR_INC)}
+                onDisminuir = {() => setColor("blue" , -1 * COLOR_INC)}
                 color = "Blue"/>
             <ColorCounter
-                onIncrementar = {() => setGreen(green + COLOR_INC)}
-                onDisminuir = {() => setGreen(green - COLOR_INC)}
+                onIncrementar = {() => setColor("green", COLOR_INC)}
+                onDisminuir = {() => setColor("green", -1 * COLOR_INC)}
                 color = "Green"/>
             <View style = {{
                 height: 200,
