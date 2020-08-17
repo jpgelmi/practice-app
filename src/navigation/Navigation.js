@@ -6,6 +6,7 @@ import TextComponent from "../screen/TextComponent"
 import HomeScreen from "../screen/HomeScreen"
 import RandomColor from "../screen/RandomColor"
 import ColorAdjuster from "../screen/ColorAdjuster"
+import CAReducer from "../screen/CAReducer"
 
 import colors from "../config/colors"
 
@@ -72,6 +73,16 @@ export default function Navigation() {
                 component = {ColorAdjuster}
                 options = {
                     {title: "RandomColor",
+                    headerStyle:{
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
+                    headerTransparent: false}
+                }/>
+            <Stack.Screen
+                name = "colorAdd-Reducer"
+                component = {CAReducer}
+                options = {
+                    {title: "Color Reducer",
                     headerStyle:{
                         backgroundColor: colors.principal},
                     headerTintColor: colors.texto,
