@@ -15,6 +15,7 @@ export default function RandomColor() {
                 setColors([...colors, randomRgb()])
             }}/>
             <FlatList
+                showsVerticalScrollIndicator = {false}
                 keyExtractor = {(item) => item.id}
                 data = {colors}
                 renderItem = {({item}) => {
