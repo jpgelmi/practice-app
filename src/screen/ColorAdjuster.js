@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import ColorCounter from "../components/ColorCounter"
+
+import colors from "../config/colors"
 
 const COLOR_INC = 15
 
@@ -29,25 +31,35 @@ export default function ColorAdjuster() {
     }
 
     return (
-        <View>
-            <ColorCounter
-                onIncrementar = {() => setColor("red", COLOR_INC)}
-                onDisminuir = {() => setColor("red", -1 * COLOR_INC)}
-                color = "Red"/>
-            <ColorCounter
-                onIncrementar = {() => setColor("blue", COLOR_INC)}
-                onDisminuir = {() => setColor("blue" , -1 * COLOR_INC)}
-                color = "Blue"/>
-            <ColorCounter
-                onIncrementar = {() => setColor("green", COLOR_INC)}
-                onDisminuir = {() => setColor("green", -1 * COLOR_INC)}
-                color = "Green"/>
-            <View style = {{
-                height: 200,
-                width:200,
-                backgroundColor: `rgb(${red},${green},${blue})`}}/>
+        <View style = {styles.container}>
+            <ScrollView showsVerticalScrollIndicator = {false}>
+                <ColorCounter
+                    onIncrementar = {() => setColor("red", COLOR_INC)}
+                    onDisminuir = {() => setColor("red", -1 * COLOR_INC)}
+                    color = "red"/>
+                <ColorCounter
+                    onIncrementar = {() => setColor("blue", COLOR_INC)}
+                    onDisminuir = {() => setColor("blue" , -1 * COLOR_INC)}
+                    color = "blue"/>
+                <ColorCounter
+                    onIncrementar = {() => setColor("green", COLOR_INC)}
+                    onDisminuir = {() => setColor("green", -1 * COLOR_INC)}
+                    color = "green"/>
+                <View style = {{
+                    height: 200,
+                    width:200,
+                    borderRadius: 20,
+                    marginVertical: 50,
+                    backgroundColor: `rgb(${red},${green},${blue})`}}/>
+            </ScrollView>
         </View>
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor: colors.secundario,
+        alignItems: "center"   
+    }
+})
