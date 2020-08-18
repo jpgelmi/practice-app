@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useReducer} from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import ColorCounter from "../components/CCReducer"
 
@@ -6,44 +6,37 @@ import colors from "../config/colors"
 
 const COLOR_INC = 15
 
-export default function ColorAdjuster() {
-    const[red, setRed] = useState(0)
-    const[green, setGreen] = useState(0)
-    const[blue, setBlue] = useState(0)
-
-    const setColor = (color, change) => {
-        //color === red, green, blue
-        //change === + 15, - 15
-
-        switch(color){
-            case "red":
-                red + change > 225 || red + change < 0 ? null : setRed(red + change);
-                return;
-            case "green":
-                green + change > 225 || green + change < 0 ? null : setGreen(geen+ change);
-                return;
-            case "blue":
-                blue + change > 225 || blue + change < 0 ? null : setBlue(blue + change);
-                return;
-            default:
-                return;
-        }
+const reducer = (state, action) => {
+    switch(action.colorToChange){
+        case "red":
+            return { ...state, red: state.red + action.cantidad }
+        case "green":
+            return { ...state, green: state.green + action.cantidad }
+        case "blue":
+            return { ...state, blue: state.blue + action.cantidad }
+        default:
+            return state;
     }
+}
+
+export default function ColorAdjuster() {
+    const[state, runReducer] = useReducer(reducer, {red: 0, green: 0, blue:0})
+    const {red, green, blue} = state
 
     return (
         <View style = {styles.container}>
             <ScrollView showsVerticalScrollIndicator = {false}>
                 <ColorCounter
-                    onIncrementar = {() => setColor("red", COLOR_INC)}
-                    onDisminuir = {() => setColor("red", -1 * COLOR_INC)}
+                    onIncrementar = {() => runReducer({ colorToChange: "red", cantidad: COLOR_INC}) }
+                    onDisminuir = {() => runReducer({ colorToChange: "red", cantidad: -1 * COLOR_INC}) }
                     color = "red"/>
                 <ColorCounter
-                    onIncrementar = {() => setColor("blue", COLOR_INC)}
-                    onDisminuir = {() => setColor("blue" , -1 * COLOR_INC)}
+                    onIncrementar = {() => runReducer({ colorToChange: "green", cantidad: COLOR_INC}) }
+                    onDisminuir = {() => runReducer({ colorToChange: "green", cantidad: -1 * COLOR_INC}) }
                     color = "blue"/>
                 <ColorCounter
-                    onIncrementar = {() => setColor("green", COLOR_INC)}
-                    onDisminuir = {() => setColor("green", -1 * COLOR_INC)}
+                    onIncrementar = {() => runReducer({ colorToChange: "blue", cantidad: COLOR_INC}) }
+                    onDisminuir = {() => runReducer({ colorToChange: "blue", cantidad: -1 * COLOR_INC})  }
                     color = "green"/>
                 <View style = {{
                     height: 200,
