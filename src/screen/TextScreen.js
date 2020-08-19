@@ -8,6 +8,7 @@ export default function TextScreen() {
                 style = {styles.input}
                 autoCapitalize = "none"
                 autoCorrect = {false}
+                placeholder = "Ingresa texto"
             />
         </View>
     )
