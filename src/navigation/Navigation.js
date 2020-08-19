@@ -7,6 +7,7 @@ import HomeScreen from "../screen/HomeScreen"
 import RandomColor from "../screen/RandomColor"
 import ColorAdjuster from "../screen/ColorAdjuster"
 import CAReducer from "../screen/CAReducer"
+import NumberReducer from "../screen/NumberReducer"
 
 import colors from "../config/colors"
 
@@ -83,6 +84,16 @@ export default function Navigation() {
                 component = {CAReducer}
                 options = {
                     {title: "Color Reducer",
+                    headerStyle:{
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
+                    headerTransparent: false}
+                }/>
+            <Stack.Screen
+                name = "NumberCounter-Reducer"
+                component = {NumberReducer}
+                options = {
+                    {title: "NumberCounter-Reducer",
                     headerStyle:{
                         backgroundColor: colors.principal},
                     headerTintColor: colors.texto,
