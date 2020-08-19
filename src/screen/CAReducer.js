@@ -9,11 +9,18 @@ const COLOR_INC = 15
 const reducer = (state, action) => {
     switch(action.colorToChange){
         case "red":
+            if(state.red + action.cantidad > 255 || state.red + action.cantidad < 255){
+                return state;
+            }
             return { ...state, red: state.red + action.cantidad }
         case "green":
-            return { ...state, green: state.green + action.cantidad }
+            return state.green + action.cantidad > 255 || state.green + action.cantidad < 255
+            ? state
+            : { ...state, green: state.green + action.cantidad }
         case "blue":
-            return { ...state, blue: state.blue + action.cantidad }
+            return state.blue + action.cantidad > 255 || state.blue + action.cantidad < 255
+            ? state
+            :{ ...state, blue: state.blue + action.cantidad }
         default:
             return state;
     }
