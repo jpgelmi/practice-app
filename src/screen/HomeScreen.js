@@ -18,6 +18,9 @@ export default function HomeScreen(props){
         {title: "Number Component", nav: "number"},
         {title: "Random Color", nav: "color"},
         {title: "Color Adjuster", nav: "colorAdd"},
+        {title: "colorAdd-Reduce", nav: "colorReducer"},
+        {title: "NumberCounter-Reducer", nav: "numberReducer"},
+        {title: "Text input", nav: "input"},
     ]
 
     return (

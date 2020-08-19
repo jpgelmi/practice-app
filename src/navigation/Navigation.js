@@ -8,6 +8,7 @@ import RandomColor from "../screen/RandomColor"
 import ColorAdjuster from "../screen/ColorAdjuster"
 import CAReducer from "../screen/CAReducer"
 import NumberReducer from "../screen/NumberReducer"
+import TextScreen from "../screen/TextScreen"
 
 import colors from "../config/colors"
 
@@ -80,20 +81,30 @@ export default function Navigation() {
                     headerTransparent: false}
                 }/>
             <Stack.Screen
-                name = "colorAdd-Reducer"
+                name = "colorReducer"
                 component = {CAReducer}
                 options = {
-                    {title: "Color Reducer",
+                    {title: "colorAdd-Reducer",
                     headerStyle:{
                         backgroundColor: colors.principal},
                     headerTintColor: colors.texto,
                     headerTransparent: false}
                 }/>
             <Stack.Screen
-                name = "NumberCounter-Reducer"
+                name = "numberReducer"
                 component = {NumberReducer}
                 options = {
                     {title: "NumberCounter-Reducer",
+                    headerStyle:{
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
+                    headerTransparent: false}
+                }/>
+            <Stack.Screen
+                name = "input"
+                component = {TextScreen}
+                options = {
+                    {title: "Text input",
                     headerStyle:{
                         backgroundColor: colors.principal},
                     headerTintColor: colors.texto,
