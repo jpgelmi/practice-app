@@ -9,6 +9,7 @@ import ColorAdjuster from "../screen/ColorAdjuster"
 import CAReducer from "../screen/CAReducer"
 import NumberReducer from "../screen/NumberReducer"
 import TextScreen from "../screen/TextScreen"
+import StylesScreen from "../screen/StylesScreen"
 
 import colors from "../config/colors"
 
@@ -105,6 +106,16 @@ export default function Navigation() {
                 component = {TextScreen}
                 options = {
                     {title: "Text input",
+                    headerStyle:{
+                        backgroundColor: colors.principal},
+                    headerTintColor: colors.texto,
+                    headerTransparent: false}
+                }/>
+            <Stack.Screen
+                name = "style"
+                component = {StylesScreen}
+                options = {
+                    {title: "style",
                     headerStyle:{
                         backgroundColor: colors.principal},
                     headerTintColor: colors.texto,

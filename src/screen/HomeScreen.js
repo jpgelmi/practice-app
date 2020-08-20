@@ -21,6 +21,7 @@ export default function HomeScreen(props){
         {title: "colorAdd-Reduce", nav: "colorReducer"},
         {title: "NumberCounter-Reducer", nav: "numberReducer"},
         {title: "Text input", nav: "input"},
+        {title: "Style box", nav: "style"},
     ]
 
     return (
