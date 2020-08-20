@@ -2,31 +2,31 @@ import React, {useReducer} from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import colors from "../config/colors"
 
-const reducer = (state, changeState) => {
+const reducer = (state, action) => {
     //state === {count: int}
-    //actrion === {type: "incrementar" || "decrementar", payload. 1}
+    //changeState === {type: "incrementar" || "decrementar", payload. 1}
 
-    switch(callReducer.type){
+    switch(action.type){
         case "incrementar":
-            return {...state, count: state.count + callReducer.payload}
+            return {...state, count: state.count + action.payload}
         case "disminuir":
-            return {...state, count: state.count - callReducer.payload}
+            return {...state, count: state.count - action.payload}
         default:
             return state;
     }
 }
 
 export default function NumberComponent() {
-    const[state, callReducer] = useReducer(reducer, { count: 0 }) 
+    const[state, dispatch] = useReducer(reducer, { count: 0 }) 
 
     return (
         <View style = {styles.container}>
             <Text style = {styles.text}>Veces apretadas: {state.count}</Text>
             <Button title = "Incrementar" onPress = {() => {
-               callReducer({type: "incrementar", payload: 1})
+               dispatch({type: "incrementar", payload: 1})
             }}/>
             <Button title = "Disminuir" onPress = {() => {
-               callReducer({type: "disminuir", payload: 1})
+               dispatch({type: "disminuir", payload: 1})
             }}/>
         </View>
     )
